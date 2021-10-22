@@ -10,12 +10,8 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   database: myapp
-  hostname: 127.0.0.1
-  username: root
-  password: your_password_here  
-  socket: /tmp/mysql.sock
   pool: 5
   timeout: 5000
 
@@ -52,5 +48,3 @@ test:
 production:
   <<: *default
   database: myapp_production
-  username: myapp
-  password: <%= ENV['your_password_here'] %>
